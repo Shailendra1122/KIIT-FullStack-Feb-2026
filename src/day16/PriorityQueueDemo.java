@@ -1,6 +1,7 @@
 package day16;
 
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.PriorityQueue;
 
 public class PriorityQueueDemo {
@@ -9,17 +10,17 @@ public class PriorityQueueDemo {
 		
 		PriorityQueue<Integer> pq=new PriorityQueue<Integer>(Collections.reverseOrder());  //max heap
 		
-		pq.add(8);
-		pq.add(2);
-		pq.add(3);
-		pq.add(7);
-		pq.add(5);
+		//bag me stones  5 2 9 8 1	,	5 2 1 1,   1 1 3, 1 2
 		
-		System.out.println(pq);
+		//1		1		
+		//1
 		
-		System.out.println(pq.remove());  //8
-		System.out.println(pq);
-
+		Iterator<Integer> itr=pq.iterator();
+		
+		if(itr.hasNext())
+			pq.remove();
+		
+		System.out.println("2 kg stone left in the bag or no stones left");
 	}
 
 }
