@@ -24,7 +24,7 @@ public class HashMapDemo8 {
 			hashmap.get(key).add(word);			
 		}
 		
-		System.out.println(hashmap.values());	
+		System.out.println(hashmap);	
 	}
 
 }
