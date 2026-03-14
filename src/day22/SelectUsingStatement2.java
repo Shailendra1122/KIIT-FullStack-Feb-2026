@@ -2,10 +2,11 @@ package day22;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class InsertUsingStatement {
+public class SelectUsingStatement2 {
 
 	public static void main(String[] args) throws SQLException {
 		 String url = "jdbc:mysql://localhost:3306/kiitdb";
@@ -14,13 +15,15 @@ public class InsertUsingStatement {
 		 Connection con = DriverManager.getConnection(url, username, password);	//open state
 		 
 		 Statement st=con.createStatement();
-		 String query="insert into emp1 values(1,'Alice',800.0)";
+		 //String query="select eno,ename from emp1 where eno=3";
+		 String query="select ename,eno from emp1 ";
 		 
 		
-		 int rows= st.executeUpdate(query);
+		 ResultSet rs= st.executeQuery(query);
 		 
-		 if(rows>0)
-		 System.out.println(rows+ " Records inserted");
+		// if(rs.next())
+		 while(rs.next())
+		 System.out.println(rs.getInt("eno") + " " + rs.getString("ename"));
 		 
 		 st.close();
 		 con.close();
