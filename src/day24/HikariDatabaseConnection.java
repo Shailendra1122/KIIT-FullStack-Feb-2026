@@ -11,7 +11,7 @@ public class HikariDatabaseConnection {
 	static {
         HikariConfig config = new HikariConfig();
 
-        config.setJdbcUrl("jdbc:mysql://localhost:3306/itpaugdb");
+        config.setJdbcUrl("jdbc:mysql://localhost:3306/kiitdb");
         config.setUsername("root");
         config.setPassword("");
 
