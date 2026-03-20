@@ -2,6 +2,7 @@ package com.kiit.app;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.kiit.model.Car;
 import com.kiit.model.Engine;
 import com.kiit.model.Gear;
 
@@ -22,6 +23,12 @@ public class DriverApp {
 		
 		Gear gear2=beanFactory.getBean("g2", Gear.class);
 		System.out.println(gear2);
+		
+		Car car1=beanFactory.getBean("c1", Car.class);
+		System.out.println(car1);
+		
+		Car car2=beanFactory.getBean("c2", Car.class);
+		System.out.println(car2);
 
 	}
 

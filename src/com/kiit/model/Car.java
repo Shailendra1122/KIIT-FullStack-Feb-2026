@@ -7,6 +7,8 @@ public class Car {
 	private double carPrice;
 	private String carColor;
 	
+	
+	//dependency
 	private Engine engine;
 	private Gear gear;
 	
@@ -19,6 +21,14 @@ public class Car {
 		this.engine = engine;
 		this.gear = gear;
 	}
+	
+	public Car(String carModel, String carMfg, double carPrice, String carColor) {
+		this.carModel = carModel;
+		this.carMfg = carMfg;
+		this.carPrice = carPrice;
+		this.carColor = carColor;
+	}
+	
 	public String getCarModel() {
 		return carModel;
 	}
