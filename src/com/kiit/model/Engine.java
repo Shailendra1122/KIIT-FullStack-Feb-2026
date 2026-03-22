@@ -78,4 +78,9 @@ public class Engine{ //implements InitializingBean,DisposableBean {
 		System.out.println("Immediately after constructor");
 		
 	}
+	
+	public void startEngine()
+	{
+		System.out.println("Vroooommmmm!!!");
+	}
 }
