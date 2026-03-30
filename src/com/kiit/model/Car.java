@@ -1,5 +1,8 @@
 package com.kiit.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 public class Car {
 	
 	private String carModel;
@@ -7,8 +10,18 @@ public class Car {
 	private double carPrice;
 	private String carColor;
 	
+	
+	//dependency
+	@Autowired   				    //autowire byType
+	@Qualifier("en1")   			//autowire byName
 	private Engine engine;
+	
+	@Autowired   				//autowire byType
+	@Qualifier("ge1")  
 	private Gear gear;
+	
+	@Autowired
+	private Tyre tyre;
 	
 	public Car() {}
 	public Car(String carModel, String carMfg, double carPrice, String carColor, Engine engine, Gear gear) {
@@ -19,6 +32,14 @@ public class Car {
 		this.engine = engine;
 		this.gear = gear;
 	}
+	
+	public Car(String carModel, String carMfg, double carPrice, String carColor) {
+		this.carModel = carModel;
+		this.carMfg = carMfg;
+		this.carPrice = carPrice;
+		this.carColor = carColor;
+	}
+	
 	public String getCarModel() {
 		return carModel;
 	}
@@ -62,6 +83,11 @@ public class Car {
 				+ ", engine=" + engine + ", gear=" + gear + "]";
 	}
 	
-	
+	public void startCar()
+	{
+		System.out.println("Car Started");
+		engine.startEngine();
+		tyre.tyreRolling();
+	}
 
 }

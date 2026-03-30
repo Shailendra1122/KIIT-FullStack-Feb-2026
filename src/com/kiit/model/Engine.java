@@ -1,6 +1,12 @@
 package com.kiit.model;
 
-public class Engine {
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
+public class Engine{ //implements InitializingBean,DisposableBean {
 
 	private int engineCC;
 	private int engineLiter;
@@ -13,6 +19,7 @@ public class Engine {
 		this.engineLiter = engineLiter;
 		this.engineType = engineType;
 		this.engineMfg = engineMfg;
+		System.out.println("All Args Constructor of Engine invoked");
 	}
 	public int getEngineCC() {
 		return engineCC;
@@ -43,6 +50,37 @@ public class Engine {
 		return "Engine [engineCC=" + engineCC + ", engineLiter=" + engineLiter + ", engineType=" + engineType
 				+ ", engineMfg=" + engineMfg + "]";
 	}
+//	@Override
+//	public void destroy() throws Exception {
+//		System.out.println("Just before destructor");
+//		
+//	}
+//	@Override
+//	public void afterPropertiesSet() throws Exception {
+//		System.out.println("Immediately after constructor");
+//		
+//	}
+	
+	@Override
+	protected void finalize() throws Throwable {
+		System.out.println("Desctrucor Invoked");
+	}
 	
 	
+	@PreDestroy
+	public void goodNight()  {
+		System.out.println("Just before destructor");
+		
+	}
+	
+	@PostConstruct
+	public void goodMorning()  {
+		System.out.println("Immediately after constructor");
+		
+	}
+	
+	public void startEngine()
+	{
+		System.out.println("Vroooommmmm!!!");
+	}
 }
